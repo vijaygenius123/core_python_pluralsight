@@ -3,6 +3,7 @@ from urllib.request import urlopen
 
 
 def fetch_words(url):
+    """fetch data from given url"""
     story = urlopen(url)
     story_words = []
 
@@ -16,6 +17,7 @@ def fetch_words(url):
 
 
 def print_words(story_words):
+    """print the words"""
     print(story_words)
 
 
