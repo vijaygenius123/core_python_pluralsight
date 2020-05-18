@@ -1,24 +1,29 @@
+import sys
 from urllib.request import urlopen
 
 
-def fetch_words():
-    story = urlopen('http://sixty-north.com/c/t.txt')
-
-    story_words_decoded = []
+def fetch_words(url):
+    story = urlopen(url)
     story_words = []
 
     for line in story:
-        line_words_decoded = line.decode('utf-8').split()
-        line_words = line.split()
+        line_words = line.decode('utf-8').split()
         for word in line_words:
             story_words.append(word)
-        for word in line_words_decoded:
-            story_words_decoded.append(word)
     story.close()
 
+    return story_words
+
+
+def print_words(story_words):
     print(story_words)
-    print(story_words_decoded)
+
+
+def main(url):
+
+    words = fetch_words(url)
+    print_words(words)
 
 
 if __name__ == '__main__':
-    fetch_words()
+    main(sys.argv[1])
