@@ -12,8 +12,7 @@ for line in story:
         story_words.append(word)
     for word in line_words_decoded:
         story_words_decoded.append(word)
-
-
 story.close()
+
 print(story_words)
 print(story_words_decoded)
